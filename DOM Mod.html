@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<body id="colored">
+<center>
+
+<h2 id="he1">Tired Tiger</h2>
+
+<p id="up"  value="Time"> Here's a tired tiger resting on a rock.</p>
+<p id="para1">Do you like a lazy tiger?</p>
+<p id="para2">Lets have him roar!<p>
+
+<img src="http://www.mybligr.com/wp-content/uploads/2017/01/most-beautiful-tiger-animals-pics-images-photos-pictures-6.jpg" id="tiger" width="60%"/>
+
+<p>Click here to get him up</p>
+
+<input type="submit" id="button1" onClick="swapImg()"/>
+
+<p>Click to change text color</p>
+
+<input type="submit" id="button2" onClick="swapText()"/>
+
+
+
+<p>Click to Alert</p>
+
+<input type="submit" id="button2" onClick="alerting()"/>
+
+
+</center>
+
+
+
+
+
+
+<script>
+
+function swapImg(){
+
+document.getElementById("tiger").src="http://3.bp.blogspot.com/-w8PD_Z4bjaw/UQZrL0zT0RI/AAAAAAAABmU/b0lBi711DoI/s1600/tiger-roar.jpg";
+
+var par2 = document.createElement("p");
+para2.innerHTML = "Roar!";
+
+
+
+
+
+var par1 = document.createElement("p");
+para1.innerHTML = "How about This?";
+
+var background = document.getElementById("colored").style.backgroundColor="red";
+
+var tFont = document.getElementById("para2").style.fontSize ="40px";
+
+
+}
+
+
+function swapText(){
+
+var tColor = document.getElementById("he1").style.color ="green";
+
+
+
+
+}
+
+
+
+
+function alerting(){
+
+
+var info = document.getElementById("he1").innerHTML;
+
+
+alert(info);
+
+
+
+var displayBody = document.body.innerHTML;
+
+alert(displayBody);
+
+
+var displayNode = document.getElementById("up").nodeName;
+
+alert(displayNode);
+
+
+var displayNodeT = document.getElementById("up").nodeType;
+
+alert(displayNodeT);
+
+
+
+
+var displayValue = document.getElementById("up").childNodes[0].nodeValue;
+
+alert(displayValue);
+
+}
+
+
+
+function gone(){
+
+document.write("Oh no he's gone, click refresh to bring him back.");
+
+}
+
+
+
+
+</script>
+
+
+
+<center>
+
+<p>Click to Erase</p>
+
+
+<input type="submit" id="button2" onClick="gone()" />
+
+
+
+</center>
+
+
+</body>
+</html>
