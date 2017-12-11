@@ -1,0 +1,137 @@
+
+table{ 
+
+border:5px solid black; font-size: 25px; width: 100%; background-color: #675434; margin:auto; }
+
+
+h1{
+    font-size: 40px;
+    color: white;
+}
+
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    text-decoration: none;
+    margin: 0%  0%  0%  0%;
+
+    padding: 0%  0%  0%  0%;
+width:100%;
+
+}
+
+li {
+
+     background-color: black;
+    width:50%;
+    text-align: center;
+    display: block;
+    color: white;
+       float: left;
+    padding: 14px 16px;
+    
+}
+
+ul :hover {
+    background-color: #111;
+}
+img {
+	width: 350px;
+	height: 450px;
+    display: block;
+}
+
+body
+{
+	text-align: center;
+    background-image: url(http://bgfons.com/uploads/industrial/industrial_texture695.jpg);
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index:1;
+    color: black;
+    
+    
+    
+
+}
+
+th{
+
+    text-align: center;
+}
+
+
+.photos
+{
+    display: flex;
+    text-align: center;
+
+}
+
+.title{
+
+
+    background-color: #ccb48b;
+    border:  2px solid black;
+    position: center;
+    display: inline-block;
+    margin: 20px;
+    font-size: 20px;
+}
+.cart {
+    float: right;
+}
+
+.white{
+    font-size: 20px;
+    color:white;
+}
+.photos
+{
+    display: flex;
+    text-align: center;
+
+}
+
+#bookstore{
+
+    width:50%;
+    border-radius: 20px;
+    margin: auto;
+}
+#bookstore2{
+    float: left;
+border-radius: 60px;
+    width: 50%;
+    padding: 20px;
+}
+#bookstore3{
+    float: right;
+    width: 50%;
+    height: 450px;
+    border-radius: 60px;
+    padding:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

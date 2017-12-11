@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Shopping Cart</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="main1.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script>
+	
+	$(document).ready(function(){
+
+		$("#twilight").dblclick(function(){
+			AddtoCart("Twilight Saga",prompt("How many Books", ""), 17.50);
+
+		});
+	});
+
+	$(document).ready(function(){
+
+		$("#giver").dblclick(function(){
+			AddtoCart("The Giver",prompt("How many Books", ""), 25.99);
+
+		});
+	});
+
+	$(document).ready(function(){
+
+		$("#moon").dblclick(function(){
+			AddtoCart("Moonstone",prompt("How many Books", ""), 43.97);
+
+		});
+	});
+</script>
+
+	
+</head>
+<body>
+<h1> Book Store</h1>
+<nav>
+	 <ul>
+    <a href="main2.html"><li style="background-color: #222;"> Home</li></a>
+    <a href="about1.html"><li>About</li></a>
+  </ul>
+</nav>
+<div class="photos">
+
+
+<div class="title">
+<img src="http://books-for-you.weebly.com/uploads/2/9/6/6/29668871/s732632133292439671_p9_i7_w499.jpeg" id="twilight">
+
+<p id="bk1"><b>Twilight Saga</b></p>
+<p><i> By Stephaine Myers</i></p>
+<p>Cost:</p>
+<p id="price1">$17.50</p>
+</div>
+
+
+<div class="title">
+<img src="https://images.gr-assets.com/books/1342493368l/3636.jpg" id="giver">
+
+
+<p id="bk2"><b> The Giver </b></p>
+<p><i>By Lois Lowry</i></p>
+<p>Cost:</p>
+<p id="price2">$25.99</p>
+</div>
+
+<div class="title">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMr279TEP9H1FBC19nrZD-VjqzNeyyZz-15Vil7n85kORdQNeL" id="moon">
+
+<p id="bk3"><b> Moonstone </b></p>
+
+<p><i>By Wilkie Collins</i></p>
+<p>Cost:</p>
+<p id="price3">$43.97</p>
+</div>
+</div>
+
+
+<p id="spit"></p>
+
+
+<table id= "title">
+	
+
+
+
+
+
+</table>
+
+<table cellpadding="4" cellspacing="4" border="0">
+
+            </table>
+        </td>
+        <td valign="top">
+            <table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl">
+                <thead>
+
+                    <tr>
+            
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                    </tr>
+
+                    
+                </thead>
+                <tbody id="orderedProductsTblBody">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" align="right" id="cart_total">
+
+                        </td>
+
+                        
+                    </tr>
+
+                    <tr>
+
+                    	<td colspan="3" align="right" id="truTotal">
+                    	
+
+                    </td>
+
+                    	
+                    </tr>
+                    <tr>
+
+                    	
+                    	<th>
+
+                    		<input type="submit" value="Checkout" onclick="checking()">
+
+                    		<input type="submit" value="ClearCart" onclick="RemovefromCart()">
+
+
+
+                            </th>
+                        
+                    </tr>
+                </tfoot>
+            </table>
+        </td>
+    </tr>
+</table>
+
+                        
+
+
+
+
+<!--<script type="text/javascript" src="tester2.js"></script>
+
+	
+-->
+
+
+<script type="text/JavaScript">
+
+
+/*
+function inTotal(){
+
+var Book = {
+
+name:document.getElementById("bk1").innerHTML, 
+
+price: document.getElementById("price1").innerHTML,
+
+quantity: prompt("How many books", "")
+
+}
+
+
+var can = Book.price
+
+var pricio = can.replace("$","");
+
+var test = parseInt(pricio);
+
+var total = ((test) * (Book.quantity));
+
+ 
+var tax = total * .075;
+
+var tax1 = tax.toFixed(2);
+
+var amountDue = total + tax;
+
+
+
+var RoundamountDue = amountDue.toFixed(2);
+
+}
+*/
+
+
+    var shoppingCart = [];
+
+    function displayShoppingCart(){
+        var orderedProductsTblBody=document.getElementById("orderedProductsTblBody");
+   
+        while(orderedProductsTblBody.rows.length>0) {
+            orderedProductsTblBody.deleteRow(0);
+        }
+
+        var cart_total_price=0;
+     
+        for(var product in shoppingCart){
+           
+            var row=orderedProductsTblBody.insertRow();
+      
+            var cellName = row.insertCell(0);
+            var cellDescription = row.insertCell(1);
+            var cellPrice = row.insertCell(2);
+            cellPrice.align="right";
+   
+            cellName.innerHTML = shoppingCart[product].Name;
+            cellDescription.innerHTML = shoppingCart[product].Description;
+            cellPrice.innerHTML = shoppingCart[product].Price;
+            cart_total_price+=shoppingCart[product].Price;
+        }
+   
+        document.getElementById("cart_total").innerHTML=cart_total_price;
+    }
+
+
+    function AddtoCart(name,description,price){
+   
+       var singleProduct = {};
+     
+       singleProduct.Name=name;
+       singleProduct.Description=description;
+
+       price = (price * description)
+       singleProduct.Price=price;
+
+       shoppingCart.push(singleProduct);
+    
+       displayShoppingCart();
+
+    }  
+
+
+
+
+
+
+    function RemovefromCart(name,description,price){
+      
+       var singleProduct = {};
+     
+       singleProduct.Name=name;
+       singleProduct.Description=description;
+       singleProduct.Price= price;
+     
+       shoppingCart.splice(singleProduct);
+       displayShoppingCart();
+
+    }  
+
+
+   function checking(){
+
+  var money = document.getElementById("cart_total").innerHTML;
+
+   	var calc =  ((money * .075));
+
+
+   		var comp = ((calc + parseInt(money)));
+
+   		totally = comp.toFixed(2);
+
+   	console.log(money);
+ 	console.log(calc);
+
+document.getElementById("truTotal").innerHTML = "Tax: $" + calc + "<br>" + 
+"Total: $" + totally;
+
+
+ 	if(comp >= 100 ){
+
+address = prompt("Please enter your shipping address:", "");
+ 
+
+ 		alert("You are authorized to pay with credit card");
+
+var card = prompt("Please enter 16 digit Card Number:","");
+
+
+if(card != NaN && card.length === 16){
+	var pin = prompt("Please enter 4 digit Pin #:","");}
+  
+  if( card == NaN || card.length != 16 ){
+
+  	alert("Invalid submission");}
+  
+
+
+if( pin == NaN || pin.length != 4 ){
+
+	alert("Invalid submission");
+}
+
+
+if( pin != NaN  && pin.length == 4){
+
+	alert("Thank You,your $" + totally + " order has been placed");
+
+confirm("We will ship your purchase to " + address);
+}
+
+
+ 	}
+
+ 	if(comp == 0 || comp == NaN){
+
+alert("Your cart is empty");
+
+ 	}
+
+
+if( 0 < comp <= 100 ){
+
+	address = prompt("Please enter your shipping address:", "");
+ 
+
+	alert(" Pay $" + totally + " with cash via mail to address: 1494 Below View Road NW Suite #82 ");
+
+confirm("We will ship your purchase to " + address);
+
+}
+
+
+
+
+   }
+
+
+</script>
+
+</body>
+</html>
